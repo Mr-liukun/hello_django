@@ -17,9 +17,8 @@
 #CMD ["python", "manage.py runserver"]
 
 FROM python:3.6.7
-RUN mkdir -p /usr/src/app
-COPY hello_django /usr/src/app/
-COPY run_web.sh /usr/src/app/
-RUN pip install -r /usr/src/app/requirements.txt
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/app/hello_django
+COPY .  /usr/src/app/hello_django/
+WORKDIR /usr/src/app/hello_django/
+RUN pip install django==1.9.13
 CMD [ "sh", "./run_web.sh"]
